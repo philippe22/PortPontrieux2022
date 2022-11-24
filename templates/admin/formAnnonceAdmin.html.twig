@@ -1,0 +1,66 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Partie Administration{% endblock %}
+
+{% block PortPontrieux_Admin_body %}
+	<h3>Formulaire de {{ action }} d'annonce</h3>
+
+	<div class="well">
+	  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+	  {# Les erreurs générales du formulaire. #}
+	  {{ form_errors(form) }}
+
+	  {# Génération du controle de façon détaillée #}
+		  {# Génération du label. #}
+		  {{ form_label(form.intitule, "Intitulé : ", {'label_attr': {'class': 'form-label'}}) }}
+		  {# Affichage des erreurs pour ce champ précis. #}
+		  {{ form_errors(form.intitule) }}
+		  {# Génération de l'input. #}
+		  {{ form_widget(form.intitule, {'attr': {'class': 'form-control'}}) }}
+	  
+	  {# Génération du controle de façon détaillée #}
+		  {# Génération du label. #}
+		  {{ form_label(form.details, "Détails : ", {'label_attr': {'class': 'form-label'}}) }}
+		  {# Affichage des erreurs pour ce champ précis. #}
+		  {{ form_errors(form.details) }}
+		  {# Génération de l'input. #}
+		  {{ form_widget(form.details, {'attr': {'class': 'form-control'}}) }}
+
+	  {# Génération du controle de façon détaillée #}
+		  {# Génération du label. #}
+		  {{ form_label(form.dateAffichage, "Date début affichage : ", {'label_attr': {'class': 'form-label'}}) }}
+		  {# Affichage des erreurs pour ce champ précis. #}
+		  {{ form_errors(form.dateAffichage) }}
+		  {# Génération de l'input. #}
+		  {{ form_widget(form.dateAffichage, {'attr': {'class': 'form-control'}}) }}
+
+	  {# Génération du controle de façon détaillée #}
+		  {# Génération du label. #}
+		  {{ form_label(form.dateDesaffichage, "Date fin affichage : ", {'label_attr': {'class': 'form-label'}}) }}
+		  {# Affichage des erreurs pour ce champ précis. #}
+		  {{ form_errors(form.dateDesaffichage) }}
+		  {# Génération de l'input. #}
+		  {{ form_widget(form.dateDesaffichage, {'attr': {'class': 'form-control'}}) }}
+	  <br/>
+
+	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+	  {{ form_widget(form.Valider, {'attr': {'class': 'btn btn-danger'}}) }}
+	  
+	  {# Bouton permettant de revenir à la page précédente sans valider #}
+	  <input type="button" value="Retour" class = "btn btn-primary" onClick="history.go(-1)" />
+
+	  {# Génération automatique des champs pas encore écrits.
+		 Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+		 et tous les champs cachés (type « hidden »). #}
+	  {{ form_rest(form) }}
+
+	  {# Fermeture de la balise <form> du formulaire HTML #}
+	  {{ form_end(form) }}
+	</div>
+	<script>
+		$(function() {
+			$('#menu2Admin').attr('class', 'active');
+		});
+	</script>
+{% endblock %}

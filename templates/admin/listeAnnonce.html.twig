@@ -1,0 +1,35 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Partie Administration{% endblock %}
+
+{% block PortPontrieux_Admin_body %}
+	<h2>AFFICHAGE DES ANNONCES</h2>
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Intitulé</th>
+			<th>Détail</td>
+            <th colspan="2">Option</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for annonce in lesAnnonces %}
+				<tr {# si le nombre de passages dans la boucle est pair #} {% if loop.index is even %} class="success" {% else %} class="info" {% endif %}>
+					<td>{{annonce.id}}</td>
+					<td>{{annonce.intitule}}</td>
+					<td>{{annonce.details}}</td>
+					<td><a href="{{path('modifAnnonceAdmin', {'id' : annonce.id}) }}">Modifier</a></td>
+					<td><a href="{{ path('suppAnnonceAdmin', {'id': annonce.id}) }}">Supprimer</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+	<script>
+		$(function() {
+			$('#menu2Admin').attr('class', 'active');
+		});
+	</script>
+	
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+{% block PortPontrieux_body %}
+	<h3>Formulaire de saisie des locations</h3>
+	<!-- On aurait pu remplacer toutes les lignes suivantes par	<div class="well">  { form(form) } </div> -->
+	<!-- mais l'affichage aurait été plus sommaire -->
+	<div class="well">
+	  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+	  {# Les erreurs générales du formulaire. #}
+	  {{ form_errors(form) }}
+
+	  {# Génération du label + error + widget pour un champ. #}
+	  {{ form_row(form.nomBateau) }}
+
+	  {# Génération du label + error + widget pour un champ. #}
+	  {{ form_row(form.portAttache) }}
+
+	  {# Génération du label + error + widget pour un champ. #}
+	  {{ form_row(form.dateArrivee) }}
+
+	  {# Génération du label + error + widget pour un champ. #}
+	  {{ form_row(form.dateDepart) }}
+
+	  {# Génération du label + error + widget pour un champ. #}
+	  {{ form_row(form.reglement) }}
+
+	  {# Génération du label + error + widget pour un champ. #}
+	  {{ form_row(form.emplacement) }}
+
+	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+	  {# Génération automatique des champs pas encore écrits.
+		 Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+		 et tous les champs cachés (type « hidden »). #}
+	  {{ form_rest(form) }}
+
+	  {# Fermeture de la balise <form> du formulaire HTML #}
+	  {{ form_end(form) }}
+
+	</div>
+	<script>
+		$(function() {
+			$('#menu5').attr('class', 'active');
+		});
+	</script>
+{% endblock %}
+

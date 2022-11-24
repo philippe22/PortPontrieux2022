@@ -1,0 +1,45 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Partie Administration{% endblock %}
+
+{% block PortPontrieux_Admin_body %}
+	<h2>AFFICHAGE DES UTILISATEURS</h2>
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nom</th>
+			<th>Role(s)</td>
+			<th>Mot de passe</th>
+            <th colspan="2">Option</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for utilisateur in lesUtilisateurs %}
+				<tr {# si le nombre de passages dans la boucle est pair #} {% if loop.index is even %} class="success" {% else %} class="info" {% endif %}>
+					<td>{{utilisateur.id}}</td>
+					<td>{{utilisateur.username}}</td>
+                    <td>
+                    {% for i in 0..(utilisateur.roles|length - 1) %}
+                        {{utilisateur.roles[i]}}
+                        {% if (i+1<utilisateur.roles|length) %}
+                        /
+                        {% endif %}
+                        {% set i = i + 1 %}
+                    {% endfor %}
+					</td>
+					<td>{{utilisateur.password}}</td>
+					<td><a href="{{path('modifCompteAdmin', {'id' : utilisateur.id}) }}">Modifier</a></td>
+					<td><a href="{{ path('suppCompteAdmin', {'id': utilisateur.id}) }}">Supprimer</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+	<script>
+		$(function() {
+			$('#menu1Admin').attr('class', 'active');
+		});
+	</script>
+	
+{% endblock %}

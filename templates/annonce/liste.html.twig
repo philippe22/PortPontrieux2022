@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block PortPontrieux_body %}
+	<h1>Les annonces du port</h1>
+		
+	<table class="table">
+		<thead>
+		<tr>
+			<th>intitule</th>
+			<th>detail</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for annonce in lesAnnonces %}
+				<tr {# si le nombre de passages dans la boucle est pair #} {% if loop.index is even %} class="success" {% else %} class="info" {% endif %}>
+					<td>{{annonce.intitule}}</td>
+					<td><a href="{{path('detailsAnnonce', {'id':annonce.id}) }}">Détails...</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	  </table>
+
+	<script>
+		$(function() {
+			$('#menu3').attr('class', 'active');
+		});
+	</script>
+	
+{% endblock %}

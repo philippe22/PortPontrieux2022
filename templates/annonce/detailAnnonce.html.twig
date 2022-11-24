@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block PortPontrieux_body %}
+	<h1>Détail de l'annonce {{ uneAnnonce.intitule }}</h1>
+	<br/><br/>
+	
+	<h2>{{uneAnnonce.details}}</h2>
+
+
+	<script>
+		$(function() {
+			$('#menu3').attr('class', 'active');
+		});
+	</script>
+	
+{% endblock %}

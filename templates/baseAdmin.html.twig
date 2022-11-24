@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Gestion du port de Pontrieux - Partie Administration</title>
+		{# Bloc que l'on pourra éventuellement modifié dans les templates finaux #}
+		{% block styles %}
+			<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+			<script src="{{ asset('js/jquery.js') }}"></script>
+			<script src="{{ asset('js/bootstrap.js') }}"></script>
+			<style>
+				.carousel-inner > .item > img,
+				.carousel-inner > .item > a > img
+				{
+					width: 70%;
+					margin: auto;
+				}
+			</style>
+		{% endblock %}
+	</head>
+	{% block body %}
+		{# Ici on va définir une banniere, un titre et un menu commun à toutes les pages #}
+			<nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+				<div class="navbar-header">
+				  <a class="navbar-brand" href="#">Administration du port de Pontrieux</a>
+				</div>
+				<ul class="nav navbar-nav">			  
+				  <li id='menu1Admin' class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestion des comptes
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{{path('register') }}">Insertion</a></li>
+							<li><a href="{{path('listeCompteAdmin') }}">Modification/Suppression</a></li>
+						</ul>
+				  </li>
+					<li id='menu2Admin' class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestion des annonces
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{{path('insereAnnonceAdmin') }}">Insertion</a></li>
+							<li><a href="{{path('listeAnnonceAdmin') }}">Modification/Suppression</a></li>
+						</ul>
+				  </li>
+					<li id='menu3Admin'><a href="{{ path('logout') }}">Déconnection</a></li>
+				</ul>
+			  </div>
+			</nav>
+		{# Ici se trouve le bloc que les vues pourront remplir #}
+		{% block PortPontrieux_Admin_body %}
+		
+		{% endblock %}
+	{% endblock %}
