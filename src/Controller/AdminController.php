@@ -34,7 +34,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    // Méthode pour afficher la liste des comptes et permettre une suppression ou modification
+    // Méthode pour afficher la liste des comptes(utilisateurs) et permettre une suppression ou modification
     /**
      * @Route("/listeCompteAdmin", name="listeCompteAdmin")
      * 
