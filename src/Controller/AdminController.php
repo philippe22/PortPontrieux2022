@@ -1,5 +1,5 @@
 <?php
-
+// Controleur pour la partie administration
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -114,7 +114,7 @@ class AdminController extends AbstractController
 			$em->persist($user);
 			$em->flush();
 				
-			// Réaffichage de la liste des utilisateurs
+			// Réaffichage de la liste des utilisateurs (comptes)
             $lesUtilisateurs = $rep->findAll();
             return $this->render('admin/listeCompte.html.twig', Array('lesUtilisateurs' => $lesUtilisateurs));
 		}
